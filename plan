@@ -1,0 +1,74 @@
+To do
+- Make general structure, intro, levels, pause, game over pass correctly
+- Make hero animation, controls, shoot and jump
+- Make hero interaction with tile group
+- Make hero interaction with Shroom and palette change
+
+Structure
+
+Platform
+  __init__.py
+  platform
+    image files
+    sound files
+    function.py #maybe use this just for creating maps
+      load()
+        intro
+        start_menu
+        pause_menu
+        game_over
+        levels
+
+    __main__.py
+      CONSTANTS
+        colours
+        fonts
+        dimensions
+
+      variables
+        lives
+        hero_status
+
+      GROUPS
+        enemy
+        item
+        hero
+        magic #bullets
+        tiles
+
+      SpriteSheet() #to take one sprite from a SpriteSheet
+        init(sheet)
+          self.left1 = (top_left_coordinates, (width, height))
+          ...
+        get_sprite()
+          return the shape and rect for the sprite
+
+      Hero class
+        control()
+          left, right, up, shoot
+        collect_item()
+          darken pallette- purple, dark red, black
+          able to shoot
+        die()
+
+      Shroom() #levelup item
+        collected
+
+      Gem() #life item
+        collected
+
+      Grass() #walking enemy
+        move
+        die
+
+      Shrump() #static enemy
+        move
+        die
+
+      Seed() #jumping enemy
+        move
+        die 
+
+
+      Game
+        game_loop
