@@ -1,8 +1,7 @@
 To do
 - Make general structure, intro, levels, pause, game over pass correctly
-- Make hero animation, controls, shoot and jump
-- Make hero interaction with tile group
-- Make hero interaction with Shroom and palette change
+  - shape and rect need to update in __main__ sprites # group.update(sprite.shape, sprite.rect) works but not suitable for different enemies in the same group, may need to create more groups but this seems messy
+  - work out how to render levels while maintaining game status when paused
 
 Structure
 
@@ -67,7 +66,7 @@ Platform
 
       Seed() #jumping enemy
         move
-        die 
+        die
 
 
       Game
