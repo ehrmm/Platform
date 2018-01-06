@@ -6,6 +6,7 @@ import pygame
 import sys
 from animation import *
 pygame.init()
+pygame.key.set_repeat(10, 10)
 
 #constants
 DISPLAY_SURF = pygame.display.set_mode([DISPLAY_WIDTH, DISPLAY_HEIGHT])
@@ -17,34 +18,37 @@ class Game():
         """
         pass
 
-    def intro(self):
-        pass
-
-    def level1(self):
-        tile_map = [] # an array of numbers, each of which refers to a tile from the tile spritesheet
-        enemies = []
-        items = []
-
-    def level2(self):
-        pass
-
     def game_loop(self):
         """Main game loop
         """
-        mage = Mage()
+        level = Level()
+        clock = pygame.time.Clock()
+        clock.tick(30)
+
         while True:
+            print(clock.get_fps())
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+                for sprite in HERO_GROUP.sprites():
+                    sprite.move(event)
+                    HERO_GROUP.update(sprite.image, sprite.rect)
                 else:
                     pass
 
-            for sprite in HERO_GROUP.sprites():
-                sprite.move()
-            HERO_GROUP.update(mage.image, mage.rect)
+            for sprite in TILE_GROUP.sprites():
+                TILE_GROUP.update(sprite.image, sprite.rect)
+            for sprite in ENEMY_GROUP.sprites():
+                #sprite.move()
+                ENEMY_GROUP.update(sprite.image, sprite.rect)
+            for sprite in ITEM_GROUP.sprites():
+                #sprite.move()
+                ITEM_GROUP.update(sprite.image, sprite.rect)
 
+            print(TILE_GROUP.sprites())
             #rendering
+            DISPLAY_SURF.fill(BLACK)
             TILE_GROUP.draw(DISPLAY_SURF)
             HERO_GROUP.draw(DISPLAY_SURF)
             ENEMY_GROUP.draw(DISPLAY_SURF)

@@ -1,7 +1,19 @@
 To do
 - Make general structure, intro, levels, pause, game over pass correctly
-  - shape and rect need to update in __main__ sprites # group.update(sprite.shape, sprite.rect) works but not suitable for different enemies in the same group, may need to create more groups but this seems messy
+  X work out how to update position of sprites
   - work out how to render levels while maintaining game status when paused
+    - create pause intro, pause menu and settings
+- Make interaction of mage with tiles
+    - make mage jump or fly?
+    X make mage sprite sheet
+    X make spritesheet get_sprite function
+    X animate mage
+        X adding in a count to cycle through mage sprites as it "walks"
+        - put in a fps clock? totally showing as 0 all the time?
+        - make background to sprites transparent, might be already if not saved in paint
+    - may as well animate other sprites while im at it
+    - make tile_sheets
+    - render first tile sheet, a ground level for testing with a block
 
 Structure
 
